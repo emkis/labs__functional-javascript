@@ -1,0 +1,10 @@
+{
+  "name": "most-frequent-words",
+  "description": "script to get the most frequent words in a group of subtitles",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app.js"
+  }
+}
