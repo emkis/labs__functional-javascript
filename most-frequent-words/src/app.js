@@ -1,5 +1,6 @@
-const { join } = require('path')
+import { join } from 'path'
+import { getFilesFromDirectory } from './utils/functions'
 
 const subtitlesPath = join(__dirname, '..', 'assets', 'subtitles')
 
-console.log(subtitlesPath)
+const files = getFilesFromDirectory(subtitlesPath).then(console.log)
