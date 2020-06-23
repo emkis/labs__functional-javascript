@@ -31,36 +31,62 @@ export function readFiles (filesPath) {
   return Promise.all(filesPath.map(path => readFile(path)))
 }
 
-export function filesEndingWith (files, pattern) {
-  return files.filter(file => file.endsWith(pattern))
+export function textsEndingWith (pattern) {
+  return function (files) {
+    return files.filter(file => file.endsWith(pattern))
+  }
 }
 
 export function mergeContent (array) {
   return array.join(' ')
 }
 
-export function splitStringByPattern (text, pattern) {
-  return text.split(pattern)
+export function orderByAttrNumeric (attribute, order = 'asc') {
+  return function (array) {
+    const ascOrder = (objectA, objectB) => objectA[attribute] - objectB[attribute]
+    const descOrder = (objectA, objectB) => objectB[attribute] - objectA[attribute]
+    const definedOrder = order === 'asc' ? ascOrder : descOrder
+
+    return array.sort(definedOrder)
+  }
+}
+
+export function groupWords (words) {
+  const initialState = {}
+
+  return Object.values(words.reduce((groupedWords, word) => {
+    const text = word.toLowerCase()
+    const quantity = groupedWords[text] ? groupedWords[text].quantity + 1 : 1
+
+    groupedWords[text] = { word: text, quantity }
+
+    return groupedWords
+  }, initialState))
+}
+export function splitStringByPattern (pattern) {
+  return function (text) {
+    return text.split(pattern)
+  }
 }
 
 export function deleteEmptyStrings (array) {
   return array.filter(item => !!item.trim())
 }
 
-export function deletePatternsFromTexts (array, patterns) {
-  return array.map(item => {
-    let text = item
-
-    patterns.forEach(pattern => {
-      text = text.split(pattern).join('')
+export function deletePatternsFromTexts (patterns) {
+  return function (array) {
+    return array.map(item => {
+      return patterns.reduce((accumulator, pattern) => {
+        return accumulator.split(pattern).join('')
+      }, item)
     })
-
-    return text
-  })
+  }
 }
 
-export function deleteWhenIncludes (array, pattern) {
-  return array.filter(item => !item.includes(pattern))
+export function deleteWhenIncludes (pattern) {
+  return function (array) {
+    return array.filter(item => !item.includes(pattern))
+  }
 }
 
 export function deleteWhenHasOnlyNumber (array) {
