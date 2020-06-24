@@ -38,7 +38,7 @@ export function textsEndingWith (pattern) {
 }
 
 export function mergeContent (array) {
-  return array.join(' ')
+  return [...array].join(' ')
 }
 
 export function orderByAttrNumeric (attribute, order = 'asc') {
@@ -47,7 +47,7 @@ export function orderByAttrNumeric (attribute, order = 'asc') {
     const descOrder = (objectA, objectB) => objectB[attribute] - objectA[attribute]
     const definedOrder = order === 'asc' ? ascOrder : descOrder
 
-    return array.sort(definedOrder)
+    return [...array].sort(definedOrder)
   }
 }
 
