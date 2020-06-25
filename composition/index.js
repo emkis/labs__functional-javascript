@@ -6,6 +6,17 @@ function composition (...callbacks) {
   }
 }
 
+function asyncComposition (...callbacks) {
+  return function (value) {
+    return callbacks.reduce(async (accumulator, callback) => {
+      const isPromise = Promise.resolve(accumulator) === accumulator
+
+      if (isPromise) return callback(await accumulator)
+      else return callback(accumulator)
+    }, value)
+  }
+}
+
 function lowercaseText (text) {
  return text.toLowerCase()
 }
@@ -18,7 +29,7 @@ function separateText (text) {
   return text.split('').join(' ')
 }
 
-const makeNiceText = composition(lowercaseText, addEmojis, separateText)
+const makeNiceText = asyncComposition(lowercaseText, addEmojis, separateText)
 
 console.log( makeNiceText('Hello there') )
 console.log( makeNiceText('Composition is AWESOME') )
