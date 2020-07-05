@@ -26,7 +26,7 @@ console.time('#eager function')
 
 console.log( eagerRobustCalculation(3, 100) ) // 127
 console.log( eagerRobustCalculation(3, 200) ) // 227
-console.log( eagerRobustCalculation(3, 300) ) // 227
+console.log( eagerRobustCalculation(3, 300) ) // 327
 
 console.timeEnd('#eager function')            // 7507.036ms
 
