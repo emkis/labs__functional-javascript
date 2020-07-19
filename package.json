@@ -3,9 +3,10 @@
   "description": "just a playground",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/app.js",
-    "dev": "nodemon src/app.js",
-    "build": "sucrase ./src -d ./dist --transforms imports"
+    "most-frequent-words": "nodemon most-frequent-words/src/app.js",
+    "composition": "nodemon composition",
+    "functor": "nodemon functor",
+    "lazy": "nodemon lazy-evaluation"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
