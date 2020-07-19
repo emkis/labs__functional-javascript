@@ -29,7 +29,7 @@ function separateText (text) {
   return text.split('').join(' ')
 }
 
-const makeNiceText = asyncComposition(lowercaseText, addEmojis, separateText)
+const makeNiceText = composition(lowercaseText, addEmojis, separateText)
 
 console.log(makeNiceText('Hello there'))
 console.log(makeNiceText('Composition is AWESOME'))
