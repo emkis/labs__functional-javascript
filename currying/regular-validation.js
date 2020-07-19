@@ -1,5 +1,5 @@
 // regular function to validate some text
-function validateTextBetween(minSize, maxSize, errorMessage, text) {
+function validateTextBetween (minSize, maxSize, errorMessage, text) {
   const textSize = (text || '').trim().length
 
   if (textSize < minSize || textSize > maxSize) {

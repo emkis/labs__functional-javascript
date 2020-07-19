@@ -3,7 +3,7 @@
  * BUT, using currying to make more reusable
  */
 
-function validateTextBetween(minSize) {
+function validateTextBetween (minSize) {
   return function (maxSize) {
     return function (errorMessage) {
       return function (text) {
@@ -19,7 +19,7 @@ function validateTextBetween(minSize) {
   }
 }
 
-function applyValidation(callback) {
+function applyValidation (callback) {
   return function (value) {
     try {
       callback(value)

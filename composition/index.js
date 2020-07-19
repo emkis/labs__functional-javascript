@@ -18,7 +18,7 @@ function asyncComposition (...callbacks) {
 }
 
 function lowercaseText (text) {
- return text.toLowerCase()
+  return text.toLowerCase()
 }
 
 function addEmojis (text) {
@@ -31,5 +31,5 @@ function separateText (text) {
 
 const makeNiceText = asyncComposition(lowercaseText, addEmojis, separateText)
 
-console.log( makeNiceText('Hello there') )
-console.log( makeNiceText('Composition is AWESOME') )
+console.log(makeNiceText('Hello there'))
+console.log(makeNiceText('Composition is AWESOME'))

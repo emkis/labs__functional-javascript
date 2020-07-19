@@ -16,13 +16,13 @@ console.log('new value:', poweredNumbers) // [22, 24, 26, 28]
 
 // now lets create our own functor
 
-function ourFunctor(value) {
+function ourFunctor (value) {
   return {
     value,
-    invalid() {
+    invalid () {
       return this.value === null || this.value === undefined
     },
-    map(callback) {
+    map (callback) {
       if (this.invalid()) return ourFunctor(null)
 
       const newValue = callback(this.value)
