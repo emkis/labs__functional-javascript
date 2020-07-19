@@ -11,6 +11,8 @@
     "sourceType": "module"
   },
   "rules": {
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "no-unused-vars": "off",
+    "standard/no-callback-literal": "off"
   }
 }
