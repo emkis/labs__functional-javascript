@@ -1,8 +1,6 @@
 {
-  "name": "most-frequent-words",
-  "description": "script to get the most frequent words in a group of subtitles",
-  "version": "1.0.0",
-  "main": "src/app.js",
+  "name": "labs__functional-javascript",
+  "description": "just a playground",
   "license": "MIT",
   "scripts": {
     "start": "node dist/app.js",
@@ -10,9 +8,9 @@
     "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "devDependencies": {
-    "eslint": "^7.3.0",
+    "eslint": "^7.5.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
